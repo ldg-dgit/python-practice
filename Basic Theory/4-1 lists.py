@@ -13,5 +13,7 @@ print(days_of_week)
 list = [1, 2, "a", "b", True, False, [1, 2, 3]]
 
 print(list)
+print(list[-1])
 
 # 리스트에는 어떤 자료형을 넣어도 된다.
+# mutable(변경 가능한) sequance of value이다)

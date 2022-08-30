@@ -7,4 +7,4 @@ print(name.startswith("b"))
 print("bobby".startswith("a"))
 
 #list, tuple, dictionary
-# 저렇게 string 변수에는 다양한 함수가 들어있다
+# 뒤에 붙는 저게 메소드이고, 함수여서 ()로 실행할 수 있다.
