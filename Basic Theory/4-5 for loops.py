@@ -1,6 +1,3 @@
-import webbrowser
-
-
 websites = [
     "google.com",
     "airbnb.com",
