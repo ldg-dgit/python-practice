@@ -21,5 +21,8 @@ soup = BeautifulSoup(browser.page_source, "html.parser")
 job_list = soup.find('ul', class_="jobsearch-ResultsList")
 jobs = job_list.find_all('li', recursive=False)
 for job in jobs:
-    print(job)
-    print("------")
+    zone = job.find("div", class_="mosaic-zone")
+    if zone == None:
+        print("job li")
+    else:
+        print("mosaic")
