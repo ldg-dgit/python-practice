@@ -5,7 +5,7 @@ from selenium import webdriver
 
 def get_page_count(keyword):
     browser = webdriver.Chrome()
-    browser.get(f"https://www.indeed.com/jobs?q={keyword}&limit=50")
+    browser.get(f"https://www.indeed.com/jobs?q={keyword}")
     soup = BeautifulSoup(browser.page_source, "html.parser")
     pagination = soup.find('ul', class_='pagination-list')
     if pagination == None:
@@ -40,11 +40,10 @@ def extract_jobs_indeed(keyword):
                 employed_form = job.find('div', class_="attribute_snippet")
                 job_data = {
                     'link': f'https://www.indeed.com{link}',
-                    'company': company.string,
-                    'location': location.string,
-                    'position': title,
+                    'company': company.string.replace(",", "  "),
+                    'location': location.string.replace(",", "  "),
+                    'position': title.replace(",", "  ")
                     # 'employed_form': employed_form.string
-
                 }
                 results.append(job_data)
     return results

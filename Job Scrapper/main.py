@@ -8,6 +8,12 @@ wwr = extract_jobs_wwr(keyword)
 
 jobs = indeed + wwr
 
+file = open(f"{keyword}_job_scrap.csv", "w")
+
+file.write('Position,Company,Location,URL\n')
+
 for job in jobs:
-    print(job)
-    print("////////////////////")
+    file.write(
+        f"{job['position']},{job['company']},{job['location']},{job['link']}\n")
+
+file.close()
