@@ -26,10 +26,13 @@ def extract_jobs_wwr(keyword):
                 title = anchor.find('span', class_='title')
                 job_data = {
                     'link': f"https://weworkremotely.com{link}",
-                    'company': company.string.replace(",", "  "),
-                    'location': region.string.replace(",", "  "),
-                    'position': title.replace(",", "  ")
+                    'company': company.string,
+                    'location': region.string,
+                    'position': title.string
                     # 'employed_form': kind
                 }
+                for each in job_data:
+                    if job_data[each] != None:
+                        job_data[each] = job_data[each].replace(",", "  ")
                 results.append(job_data)
         return results

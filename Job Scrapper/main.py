@@ -3,12 +3,12 @@ from extractors.indeed import extract_jobs_indeed
 
 keyword = input("What do you want to search for?")
 
-indeed = extract_jobs_indeed(keyword)
 wwr = extract_jobs_wwr(keyword)
+indeed = extract_jobs_indeed(keyword)
 
 jobs = indeed + wwr
 
-file = open(f"{keyword}_job_scrap.csv", "w")
+file = open(f"Job Scrapper/export_data/{keyword}_job_scrap.csv", "w")
 
 file.write('Position,Company,Location,URL\n')
 

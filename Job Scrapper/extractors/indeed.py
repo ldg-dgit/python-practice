@@ -40,10 +40,13 @@ def extract_jobs_indeed(keyword):
                 employed_form = job.find('div', class_="attribute_snippet")
                 job_data = {
                     'link': f'https://www.indeed.com{link}',
-                    'company': company.string.replace(",", "  "),
-                    'location': location.string.replace(",", "  "),
-                    'position': title.replace(",", "  ")
+                    'company': company.string,
+                    'location': location.string,
+                    'position': title
                     # 'employed_form': employed_form.string
                 }
+                for each in job_data:
+                    if job_data[each] != None:
+                        job_data[each] = job_data[each].replace(",", "  ")
                 results.append(job_data)
     return results
