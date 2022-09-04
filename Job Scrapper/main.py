@@ -1,19 +1,23 @@
-from extractors.we_work_remotely import extract_jobs_wwr
-from extractors.indeed import extract_jobs_indeed
+from flask import Flask
 
-keyword = input("What do you want to search for?")
+app = Flask("Job_Scrapper")
 
-wwr = extract_jobs_wwr(keyword)
-indeed = extract_jobs_indeed(keyword)
 
-jobs = indeed + wwr
+@app.route("/")
+def home():
+    return 'hey there!'
 
-file = open(f"Job Scrapper/export_data/{keyword}_job_scrap.csv", "w")
 
-file.write('Position,Company,Location,URL\n')
+app.run()
 
-for job in jobs:
-    file.write(
-        f"{job['position']},{job['company']},{job['location']},{job['link']}\n")
 
-file.close()
+# from extractors.we_work_remotely import extract_jobs_wwr
+# from extractors.indeed import extract_jobs_indeed
+# from file import save_to_file
+
+# keyword = input("What do you want to search for?")
+# wwr = extract_jobs_wwr(keyword)
+# indeed = extract_jobs_indeed(keyword)
+# jobs = indeed + wwr
+
+# save_to_file(keyword, jobs)
