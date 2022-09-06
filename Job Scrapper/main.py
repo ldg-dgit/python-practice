@@ -36,7 +36,7 @@ def export():
     if keyword not in db:
         return redirect(f"/search?keyword={keyword}")
     save_to_file(keyword, db[keyword])
-    return send_file(f"{keyword}_job.csv", as_attachment=True)
+    return send_file(f"export_data/{keyword}_job.csv", as_attachment=True)
 
 
 app.run("localhost")
